@@ -13,30 +13,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.Objects;
 
 public class Add_edit_task_view_Activity extends AppCompatActivity {
-
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        EdgeToEdge.enable(this);
-//        setContentView(R.layout.activity_add_edit_task_view);
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-//            return insets;
-//        });
-//    }
-
     private EditText editTitle, editDescription;
     private TextView textDueDate, textEditorTitle;
     private Button buttonChooseDate, buttonSaveTask, buttonGoHome;
@@ -45,7 +29,7 @@ public class Add_edit_task_view_Activity extends AppCompatActivity {
     private long taskId = -1;
     private SimpleDateFormat dateFormat;
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -145,7 +129,7 @@ public class Add_edit_task_view_Activity extends AppCompatActivity {
                 editDescription.setText(description);
 
                 try {
-                    calendar.setTime(dateFormat.parse(dueDate));
+                    calendar.setTime(Objects.requireNonNull(dateFormat.parse(dueDate)));
                     updateDateText();
                 } catch (Exception e) {
                     e.printStackTrace();

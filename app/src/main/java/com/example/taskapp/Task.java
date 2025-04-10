@@ -1,10 +1,5 @@
 package com.example.taskapp;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
-
-import java.util.Date;
-
 public class Task {
     private long id;
     private String title;

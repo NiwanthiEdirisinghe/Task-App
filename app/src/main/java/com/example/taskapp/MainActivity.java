@@ -105,7 +105,6 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.OnTas
     }
 
     public void onTaskLongClick(int position) {
-        // Show quick options dialog (Edit/Delete)
         Task task = taskList.get(position);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -114,12 +113,10 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.OnTas
 
         builder.setItems(options, (dialog, which) -> {
             if (which == 0) {
-                // Edit
                 Intent intent = new Intent(MainActivity.this, Add_edit_task_view_Activity.class);
                 intent.putExtra("task_id", task.getId());
                 startActivityForResult(intent, REQUEST_CODE_ADD_TASK);
             } else if (which == 1) {
-                // Delete confirmation
                 AlertDialog.Builder deleteBuilder = new AlertDialog.Builder(this);
                 deleteBuilder.setTitle("Delete Task");
                 deleteBuilder.setMessage("Are you sure you want to delete this task?");

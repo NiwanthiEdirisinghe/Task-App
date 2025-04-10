@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".TaskEditorActivity">
+    tools:context=".Add_edit_task_view_Activity">
 
     <TextView
         android:id="@+id/add_edit_page_title"
@@ -15,7 +15,8 @@
         android:text="Add New Task"
         android:textAlignment="center"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_marginTop="80dp"/>
 
     <TextView
         android:layout_width="match_parent"
